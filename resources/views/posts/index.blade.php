@@ -1,3 +1,13 @@
+@extends('layouts.layouts')
+
+@section('title', 'Simple Board')
+
+@section('content')
+
+     @if(session('message'))
+        {{ session('message')}}
+     @endif
+
 <h1>Posts</h1>
 
 @foreach($posts as $post)
@@ -11,4 +21,5 @@
    </form>
 @endforeach
 
-<a href="/posts/create">New Post</a>
+  <a href="/posts/create">New Post</a>
+@endsection
