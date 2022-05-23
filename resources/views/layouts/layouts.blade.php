@@ -7,7 +7,7 @@
     <body>
         @component('components.header')
         @endcomponent
-         <div class="container">
+         <div class="container pb-5" style="padding-top: 5rem">
             @yield('content')
          </div>
         

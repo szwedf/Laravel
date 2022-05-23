@@ -14,12 +14,17 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', function () {
+ Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/' , 'PostController@index');
 
 Route::resource('posts', PostController::class);
 
 // if (env('APP_ENV') === 'local') {
 //     URL::forceScheme('https');
 // } 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
