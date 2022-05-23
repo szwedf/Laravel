@@ -4,10 +4,6 @@
 
 @section('content')
 
-     @if(session('message'))
-        {{ session('message')}}
-     @endif
-
 <h1>Posts</h1>
 
 @foreach($posts as $post)
