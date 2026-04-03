@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>客室詳細 | HOTEL AURELIA TOKYO（デモ）</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/hotelstyle.css" />
+</head>
+<body>
+  <a href="#main" class="skip">本文へスキップ</a>
+
+  <header>
+    <div class="container nav" role="navigation" aria-label="トップナビ">
+      <div class="brand"><a href="top.html">HOTEL AURELIA TOKYO</a></div>
+      <nav class="menu" aria-label="メニュー">
+        <a href="top.html#rooms">客室・スイート</a>
+        <a href="top.html#dining">ダイニング</a>
+        <a href="top.html#spa">スパ</a>
+        <a href="top.html#access">アクセス</a>
+      </nav>
+      <div class="burger" id="openMenu" aria-label="メニューを開く">☰ メニュー</div>
+      <a class="reserve" href="search.html">ご予約</a>
+    </div>
+  </header>
+
+  <main id="main" class="container" tabindex="-1">
+    <div class="breadcrumbs">
+      <a href="top.html">ホーム</a><span>›</span><a href="search.html">空室検索</a><span>›</span><span>客室詳細</span>
+    </div>
+
+    <div class="detail-layout">
+      <section class="detail-main">
+        <div class="media-frame">
+          <img id="heroImg" src="" alt="客室イメージ" loading="lazy">
+        </div>
+
+        <div class="section" style="padding:18px 0 0">
+          <h2 id="roomTitle" style="margin:0">客室</h2>
+          <p id="roomDesc" class="lead" style="margin:6px 0 0">—</p>
+          <div id="badges" class="badges"></div>
+        </div>
+
+        <hr>
+
+        <div class="section" style="padding:0">
+          <h2>ギャラリー</h2>
+          <p class="lead">クリックで拡大表示できます。</p>
+          <div id="thumbs" class="thumbs"></div>
+        </div>
+      </section>
+
+      <aside class="sticky-box">
+        <div class="box">
+          <div class="price" id="priceFrom">—</div>
+          <div class="note" id="cap">—</div>
+          <hr>
+          <a id="bookBtn" class="btn gold" href="booking.html">この客室を予約</a>
+          <div class="note" style="margin-top:10px">※ 実際の確保は予約確定時に空室を再確認します。</div>
+        </div>
+
+        <div class="box">
+          <h3 style="margin:0 0 6px">チェックポイント</h3>
+          <ul style="margin:0 0 0 1.2rem; color:var(--muted)">
+            <li>検索 → 詳細 → 予約 の導線</li>
+            <li>PHP + MySQLで空室照会</li>
+            <li>予約INSERTまで実装</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="y"></span> HOTEL AURELIA TOKYO — 学習用デモサイト</div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" aria-label="画像拡大">
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <!-- Mobile drawer -->
+  <div class="overlay" id="overlay" aria-hidden="true">
+    <div class="drawer" role="dialog" aria-label="モバイルメニュー">
+      <a href="top.html#rooms">客室・スイート</a>
+      <a href="top.html#dining">ダイニング</a>
+      <a href="top.html#spa">スパ</a>
+      <a href="top.html#access">アクセス</a>
+      <a class="reserve" href="search.html">ご予約</a>
+    </div>
+  </div>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/common.js"></script>
+  <script src="assets/room.js"></script>
+</body>
+</html>

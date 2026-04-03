@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>空室検索 | HOTEL AURELIA TOKYO（デモ）</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/hotelstyle.css" />
+
+  <!-- flatpickr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+</head>
+<body>
+  <a href="#main" class="skip">本文へスキップ</a>
+
+  <header>
+    <div class="container nav" role="navigation" aria-label="トップナビ">
+      <div class="brand"><a href="top.html">HOTEL AURELIA TOKYO</a></div>
+      <nav class="menu" aria-label="メニュー">
+        <a href="top.html#rooms">客室・スイート</a>
+        <a href="top.html#dining">ダイニング</a>
+        <a href="top.html#spa">スパ</a>
+        <a href="top.html#access">アクセス</a>
+      </nav>
+      <div class="burger" id="openMenu" aria-label="メニューを開く">☰ メニュー</div>
+      <a class="reserve" href="search.html">ご予約</a>
+    </div>
+  </header>
+
+  <main id="main" class="container" tabindex="-1">
+    <div class="breadcrumbs">
+      <a href="top.html">ホーム</a><span>›</span><span>空室検索</span>
+    </div>
+
+    <div class="search-layout">
+      <!-- sidebar -->
+      <aside class="sidebar">
+        <h3>条件を指定</h3>
+        <form id="searchForm">
+          <label>チェックイン
+            <input id="checkin" name="checkin" type="text" placeholder="YYYY-MM-DD" autocomplete="off">
+          </label>
+          <label>チェックアウト
+            <input id="checkout" name="checkout" type="text" placeholder="YYYY-MM-DD" autocomplete="off">
+          </label>
+          <label>ご宿泊人数
+            <select name="guests">
+              <option value="1">1</option><option value="2" selected>2</option>
+              <option value="3">3</option><option value="4">4</option>
+            </select>
+          </label>
+          <label>タイプ
+            <select name="type">
+              <option value="">指定なし</option>
+              <option value="single">シングル</option>
+              <option value="double">ダブル</option>
+              <option value="twin">ツイン</option>
+              <option value="deluxe">デラックス</option>
+              <option value="suite">スイート</option>
+            </select>
+          </label>
+
+          <button class="btn-primary" type="submit">空室を検索</button>
+          <div class="helper">※ API: <code>../hotel-admin/api/availability.php</code></div>
+        </form>
+      </aside>
+
+      <!-- results -->
+      <section>
+        <div class="results-head">
+          <div>
+            <h2 style="margin:0; font-family:'Noto Serif JP',serif;">検索結果</h2>
+            <div id="pills" class="pills" style="margin-top:8px"></div>
+          </div>
+          <div class="pill" id="count">…</div>
+        </div>
+
+        <div id="result" class="cards"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="y"></span> HOTEL AURELIA TOKYO — 学習用デモサイト</div>
+  </footer>
+
+  <!-- Mobile drawer -->
+  <div class="overlay" id="overlay" aria-hidden="true">
+    <div class="drawer" role="dialog" aria-label="モバイルメニュー">
+      <a href="top.html#rooms">客室・スイート</a>
+      <a href="top.html#dining">ダイニング</a>
+      <a href="top.html#spa">スパ</a>
+      <a href="top.html#access">アクセス</a>
+      <a class="reserve" href="search.html">ご予約</a>
+    </div>
+  </div>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/common.js"></script>
+  <script src="assets/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HOTEL AURELIA TOKYO | ラグジュアリーホテル（デモ）</title>
+  <meta name="description" content="学習用デモ：客室検索〜予約までの導線を実装したホテルサイト。" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/hotelstyle.css" />
+
+  <!-- flatpickr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+</head>
+<body>
+  <a href="#main" class="skip">本文へスキップ</a>
+
+  <header>
+    <div class="container nav" role="navigation" aria-label="トップナビ">
+      <div class="brand"><a href="top.html">HOTEL AURELIA TOKYO</a></div>
+      <nav class="menu" aria-label="メニュー">
+        <a href="#rooms">客室・スイート</a>
+        <a href="#dining">ダイニング</a>
+        <a href="#spa">スパ</a>
+        <a href="#offers">オファー</a>
+        <a href="#access">アクセス</a>
+      </nav>
+      <div class="burger" id="openMenu" aria-label="メニューを開く">☰ メニュー</div>
+      <a class="reserve" href="search.html">ご予約</a>
+    </div>
+  </header>
+
+  <section class="hero container" aria-label="メインビジュアル">
+    <div class="slide show" style="background-image:url('https://images.unsplash.com/photo-1544989164-31dc3c645987?q=80&w=1800&auto=format&fit=crop');"></div>
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1519824145371-296894a0daa9?q=80&w=1800&auto=format&fit=crop');"></div>
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1800&auto=format&fit=crop');"></div>
+    <div class="inner">
+      <h1>都心の眺望と、静謐なもてなし。</h1>
+      <p>検索→詳細→予約までを実装した「学習用デモサイト」。じゃらん風の導線で作っています。</p>
+      <div class="cta">
+        <a class="btn gold" href="#booking">空室を検索</a>
+        <a class="btn ghost" href="#rooms">客室を見る</a>
+        <a class="btn ghost" href="search.html">予約一覧へ</a>
+      </div>
+    </div>
+  </section>
+
+  <main id="main" class="container" tabindex="-1">
+
+    <!-- Booking -->
+    <section id="booking" class="booking-wrap">
+      <div class="booking-card">
+        <h2 style="margin:0 0 6px; font-family:'Noto Serif JP',serif;">空室検索</h2>
+        <p class="lead" style="margin:0 0 12px">日程と人数を選んで検索結果ページへ遷移します（じゃらん風）。</p>
+
+        <form id="homeSearch" class="form-grid" action="search.html" method="get">
+          <div>
+            <label for="checkin">チェックイン</label>
+            <input id="checkin" name="checkin" type="text" placeholder="YYYY-MM-DD" autocomplete="off">
+          </div>
+
+          <div>
+            <label for="checkout">チェックアウト</label>
+            <input id="checkout" name="checkout" type="text" placeholder="YYYY-MM-DD" autocomplete="off">
+          </div>
+
+          <div>
+            <label for="guests">ご宿泊人数</label>
+            <select id="guests" name="guests">
+              <option value="1">1</option><option value="2" selected>2</option>
+              <option value="3">3</option><option value="4">4</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="type">タイプ</label>
+            <select id="type" name="type">
+              <option value="">指定なし</option>
+              <option value="single">シングル</option>
+              <option value="double">ダブル</option>
+              <option value="twin">ツイン</option>
+              <option value="deluxe">デラックス</option>
+              <option value="suite">スイート</option>
+            </select>
+          </div>
+
+          <div>
+            <button class="btn-primary" type="submit">空室を検索</button>
+          </div>
+        </form>
+
+        <div class="helper">※ 動かない場合は <code>hotel-admin/sql/hotel_db_schema_seed.sql</code> を取り込んでDBを作成し、MAMPのApache/MySQLを起動してください。</div>
+      </div>
+    </section>
+
+    <!-- Rooms -->
+    <section id="rooms" class="section reveal">
+      <h2>客室・スイート</h2>
+      <p class="lead">タイプ別の詳細ページと、予約ページを用意しています。</p>
+
+      <div class="grid" style="margin-top:14px">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1560067174-8943bd75f3a2?q=80&w=1600&auto=format&fit=crop" alt="ダブル" loading="lazy" />
+          <div class="body">
+            <h3>ダブル</h3>
+            <p>心地よい寝具と落ち着いた内装。短期〜長期滞在にも。</p>
+            <div class="actions">
+              <a class="btn" href="room.html?type=double">詳細</a>
+              <a class="btn gold" href="search.html?type=double">予約</a>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1544989164-31dc3c645987?q=80&w=1600&auto=format&fit=crop" alt="デラックス" loading="lazy" />
+          <div class="body">
+            <h3>デラックス</h3>
+            <p>広々とした客室と眺望。記念日や特別な滞在に。</p>
+            <div class="actions">
+              <a class="btn" href="room.html?type=deluxe">詳細</a>
+              <a class="btn gold" href="search.html?type=deluxe">予約</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Dining -->
+    <section id="dining" class="section reveal">
+      <h2>ダイニング</h2>
+      <p class="lead">四季の素材を活かしたコース料理から、アフタヌーンティーまで。</p>
+      <div class="grid" style="margin-top:14px">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1600&auto=format&fit=crop" alt="メインダイニング" loading="lazy" />
+          <div class="body">
+            <h3>メインダイニング</h3>
+            <p>コンテンポラリー・キュイジーヌ。ワインペアリングも。</p>
+            <a class="btn" href="#booking">予約を見る</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1600&auto=format&fit=crop" alt="ティーラウンジ" loading="lazy" />
+          <div class="body">
+            <h3>ティーラウンジ</h3>
+            <p>東京の眺望とともに、季節のアフタヌーンティーを。</p>
+            <a class="btn" href="#offers">オファーへ</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Spa -->
+    <section id="spa" class="section reveal">
+      <h2>スパ＆フィットネス</h2>
+      <p class="lead">トリートメント、プール、ジムを完備（デモ）。</p>
+      <div class="grid" style="margin-top:14px">
+        <article class="card" style="grid-column:span 12">
+          <div class="media-frame">
+            <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1800&auto=format&fit=crop" alt="スパ" loading="lazy" />
+          </div>
+          <div class="body">
+            <h3>シグネチャー・トリートメント</h3>
+            <p>90分のボディ＆フェイシャルを中心に、滞在と連動した体験を。</p>
+            <a class="btn gold" href="#booking">空室検索へ</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Offers -->
+    <section id="offers" class="section reveal">
+      <h2>オファー</h2>
+      <p class="lead">宿泊・ダイニングの特典プラン（デモ）。</p>
+      <div class="grid" style="margin-top:14px">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1600&auto=format&fit=crop" alt="朝食" loading="lazy" />
+          <div class="body">
+            <h3>ベッド＆ブレックファスト</h3>
+            <p>朝食付きプラン。上階確約などの特典を想定。</p>
+            <a class="btn" href="search.html">今すぐ探す</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1483721310020-03333e577078?q=80&w=1600&auto=format&fit=crop" alt="スパ" loading="lazy" />
+          <div class="body">
+            <h3>スパ＆ステイ</h3>
+            <p>トリートメント＋レイトチェックアウト。</p>
+            <a class="btn" href="search.html?type=deluxe">対象客室</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Access -->
+    <section id="access" class="section reveal">
+      <h2>アクセス</h2>
+      <p class="lead">東京メトロ南北線 麻布十番駅 徒歩30秒（設定上のデモ）。</p>
+      <div class="grid" style="margin-top:14px">
+        <article class="card" style="grid-column:span 12">
+          <div class="media-frame">
+            <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=1800&auto=format&fit=crop" alt="夜景" loading="lazy" />
+          </div>
+          <div class="body">
+            <h3>所在地</h3>
+            <p>〒106-0032 東京都港区麻布十番4丁目1-4（デモ）</p>
+            <p><strong>電話：</strong>03-0000-0000　<strong>メール：</strong>info@example.com</p>
+            <a class="btn" href="https://maps.google.com" target="_blank" rel="noreferrer">Googleマップで開く</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">© <span id="y"></span> HOTEL AURELIA TOKYO — 学習用デモサイト</div>
+  </footer>
+
+  <!-- Mobile drawer -->
+  <div class="overlay" id="overlay" aria-hidden="true">
+    <div class="drawer" role="dialog" aria-label="モバイルメニュー">
+      <a href="#rooms">客室・スイート</a>
+      <a href="#dining">ダイニング</a>
+      <a href="#spa">スパ</a>
+      <a href="#offers">オファー</a>
+      <a href="#access">アクセス</a>
+      <a class="reserve" href="search.html">ご予約</a>
+    </div>
+  </div>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/common.js"></script>
+  <script>
+    // Calendar init (home)
+    document.addEventListener("DOMContentLoaded", () => {
+      if (typeof flatpickr === "undefined") return;
+      const inEl = document.getElementById("checkin");
+      const outEl = document.getElementById("checkout");
+      const today = new Date();
+      const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+
+      let outPicker;
+      const inPicker = flatpickr(inEl, {
+        locale:"ja", minDate:today, dateFormat:"Y-m-d", disableMobile:true,
+        onChange(d){
+          if(!d[0] || !outPicker) return;
+          const minOut = new Date(d[0].getTime() + 86400000);
+          outPicker.set("minDate", minOut);
+          if (!outPicker.input.value) outPicker.open();
+        }
+      });
+      outPicker = flatpickr(outEl, { locale:"ja", minDate:tomorrow, dateFormat:"Y-m-d", disableMobile:true });
+
+      inPicker.setDate(today, true);
+      outPicker.setDate(tomorrow, true);
+    });
+  </script>
+</body>
+</html>
