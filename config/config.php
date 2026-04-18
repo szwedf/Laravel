@@ -49,3 +49,4 @@ try {
   $tmp = null;
   $pdo = connectPdo($DB_NAME);
 }
+?>

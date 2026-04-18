@@ -1,0 +1,220 @@
+:root {
+  --bg: #f6f3ed;
+  --paper: #ffffff;
+  --ink: #171717;
+  --muted: #6b7280;
+  --line: #e5e0d6;
+  --gold: #c6a85b;
+  --danger: #b42318;
+  --ok: #157347;
+  --warn: #9a6a00;
+  --shadow: 0 18px 50px rgba(0,0,0,.08);
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans JP", sans-serif;
+}
+
+.admin-shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.admin-title {
+  margin: 0;
+  font-size: 32px;
+  letter-spacing: .04em;
+}
+
+.admin-nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.admin-nav a,
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+  padding: 9px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn.gold {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #111;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.kpi-card,
+.panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.kpi-card {
+  padding: 22px;
+}
+
+.kpi-label {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.kpi-value {
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.panel {
+  padding: 20px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 860px;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.admin-table th {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  background: #fbfaf7;
+}
+
+.badge {
+  display: inline-flex;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  border: 1px solid var(--line);
+}
+
+.badge.pending {
+  background: #fff8e6;
+  color: var(--warn);
+}
+
+.badge.confirmed {
+  background: #eaf7ef;
+  color: var(--ok);
+}
+
+.badge.cancelled {
+  background: #fdecec;
+  color: var(--danger);
+}
+
+.form-inline {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+select,
+input,
+textarea {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 9px 10px;
+  background: #fff;
+}
+
+@media (max-width: 900px) {
+  .kpi-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .admin-header {
+    display: block;
+  }
+
+  .admin-nav {
+    margin-top: 14px;
+  }
+}
+
+@media (max-width: 560px) {
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.badge.unpaid {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.badge.authorized {
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+.badge.paid {
+  background: #eaf7ef;
+  color: #157347;
+}
+
+.badge.failed {
+  background: #fdecec;
+  color: #b42318;
+}
+
+.badge.refunded {
+  background: #fff8e6;
+  color: #9a6a00;
+}
+
+small {
+  color: var(--muted);
+}
+
+.admin-table input[name="cancel_reason"] {
+  width: 150px;
+}
